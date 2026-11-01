@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOOR DJ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <section class="welcome-screen" id="welcome-screen" aria-labelledby="welcome-title">
+      <div class="welcome-card">
+        <div class="welcome-brand">
+          <span class="brand-mark"><span>N</span></span>
+          <span class="brand-copy"><strong>NOOR DJ</strong><small>DJ STUDIO</small></span>
+        </div>
+        <p class="eyebrow">استوديو الدي جي الخاص بك</p>
+        <h1 id="welcome-title">خلّ الموسيقى <span>تتكلم.</span></h1>
+        <p class="welcome-description">امزج أغانيك، أنشئ إيقاعاتك، وتحكم بكل تفصيل من مكان واحد.</p>
+        <div class="welcome-highlights" aria-label="مزايا NOOR DJ">
+          <span>٤ عجلات دي جي</span><span>منشئ إيقاعات</span><span>مؤثرات وStems</span>
+        </div>
+        <div class="welcome-actions">
+          <button class="primary-button" id="welcome-enter">ابدأ المزج</button>
+          <button class="language-toggle" id="welcome-language-toggle" aria-label="Change language">EN</button>
+        </div>
+      </div>
+    </section>
+    <div class="app-shell" inert aria-hidden="true">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="NOOR DJ">
+          <span class="brand-mark"><span>N</span></span>
+          <span class="brand-copy"><strong>NOOR DJ</strong><small>DJ STUDIO</small></span>
+        </a>
+        <div class="topbar-center">
+          <span class="live-indicator"></span>
+          <span>استوديو الدي جي</span>
+          <span class="topbar-divider"></span>
+          <span class="session-label">جلسة جديدة</span>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-button" id="rhythm-open" title="منشئ الإيقاعات" aria-label="فتح منشئ الإيقاعات">♫</button>
+          <button class="icon-button" id="library-open" title="مكتبة الموسيقى" aria-label="فتح مكتبة الموسيقى">♫</button>
+          <button class="icon-button" id="audio-settings-open" title="مخارج الصوت" aria-label="إعداد مخارج الصوت">◖</button>
+          <button class="icon-button" id="fullscreen-toggle" title="ملء الشاشة (F11)" aria-label="تفعيل وضع ملء الشاشة" aria-pressed="false">⛶</button>
+          <button class="language-toggle" id="language-toggle" aria-label="Change language">EN</button>
+          <button class="icon-button" id="help-button" title="معلومات" aria-label="معلومات">؟</button>
+          <button class="avatar" title="NOOR DJ">N</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="workspace-heading">
+          <div>
+            <p class="eyebrow">مساحة العمل <span>•</span> 01</p>
+            <h1>خلّ الموسيقى <span>تتكلم.</span></h1>
+            <p class="subtitle">رتّب مجموعتك، جهّز المسارين، واصنع انتقالك القادم.</p>
+          </div>
+          <div class="heading-actions">
+            <div class="master-level">
+              <span class="master-icon">◖</span>
+              <label for="master-volume">الرئيسي</label>
+              <input id="master-volume" type="range" min="0" max="100" value="82" aria-label="مستوى الصوت الرئيسي">
+              <span id="master-value" class="range-value">82%</span>
+            </div>
+            <button class="primary-button" id="import-button"><span class="plus">+</span> استيراد موسيقى</button>
+            <button class="secondary-button deck-mode-toggle" id="deck-mode-toggle" aria-pressed="false">تفعيل 4 عجلات</button>
+          </div>
+        </section>
+
+        <section class="decks" aria-label="مشغلات الدي جي">
+          <article class="deck deck-a" data-deck="a">
+            <div class="deck-top">
+              <div class="deck-label">
+                <span class="deck-letter">A</span>
+                <div><h2>المشغل A</h2><span class="deck-status" id="status-a">جاهز للمزج</span></div>
+              </div>
+              <button class="deck-load" data-load="a">＋ <span>تحميل مسار</span></button>
+            </div>
+            <div class="track-card">
+              <div class="record-art art-a"><span class="record-label">A</span></div>
+              <div class="track-info"><strong id="track-name-a">لا يوجد مسار</strong><span id="track-detail-a">اختر أغنية من مكتبتك للبدء</span></div>
+            </div>
+            <div class="jog-control">
+              <div class="jog-strip"><button class="jog-wheel" id="jog-a" data-midi-control aria-label="عجلة تحكم A"><span class="jog-center">A</span></button><span class="jog-hint">اسحب العجلة للخدش والتحريك</span></div>
+              <div class="jog-actions"><button class="sync-button" id="sync-a" data-midi-control aria-pressed="false" title="مزامنة سرعة المشغل A مع مشغل آخر">SYNC</button><button class="headphone-cue-button" id="headphone-cue-a" data-deck="a" data-midi-control aria-label="معاينة المسار A في سماعات الرأس" aria-pressed="false">PFL · سماعة الرأس</button></div>
+            </div>
+            <div class="wave-area"><canvas id="wave-a" aria-label="موجة الصوت للمسار A"></canvas><div class="wave-empty" id="wave-empty-a">حمّل مسارًا لبدء التشغيل</div></div>
+            <div class="timeline">
+              <span id="time-a">00:00</span>
+              <input id="seek-a" type="range" min="0" max="100" value="0" aria-label="موضع التشغيل A">
+              <span id="duration-a">00:00</span>
+            </div>
+            <div class="transport">
+              <button class="text-control" data-action="cue" data-deck="a"><span>↶</span> CUE</button>
+              <div class="transport-main">
+                <button class="play-button" data-action="play" data-deck="a" aria-label="تشغيل أو إيقاف A">▶</button>
+                <button class="loop-button" data-action="loop" data-deck="a" aria-label="تكرار المسار A">↻</button>
+              </div>
+              <div class="tempo-control">
+                <span>السرعة</span>
+                <input id="tempo-a" type="range" min="80" max="120" value="100" aria-label="سرعة المسار A">
+                <strong id="tempo-value-a">+0%</strong>
+              </div>
+            </div>
+            <div class="deck-mixer">
+              <div class="eq-control">
+                <label for="high-a">HIGH</label><input id="high-a" data-midi-control type="range" min="0" max="100" value="50" aria-label="الترددات العالية A"><span>±12</span>
+              </div>
+              <div class="eq-control">
+                <label for="mid-a">MID</label><input id="mid-a" data-midi-control type="range" min="0" max="100" value="50" aria-label="الترددات المتوسطة A"><span>±12</span>
+              </div>
+              <div class="eq-control">
+                <label for="low-a">LOW</label><input id="low-a" data-midi-control type="range" min="0" max="100" value="50" aria-label="الترددات المنخفضة A"><span>±12</span>
+              </div>
+              <div class="channel-volume">
+                <label for="volume-a">مستوى المسار</label>
+                <input id="volume-a" data-midi-control type="range" min="0" max="100" value="85" aria-label="مستوى المسار A">
+              </div>
+            </div>
+            <div class="deck-fx-buttons" aria-label="أزرار المؤثرات السريعة A">
+              <span>FX</span>
+              <button data-quick-effect="filter" data-midi-control>FILTER</button><button data-quick-effect="echo" data-midi-control>ECHO</button><button data-quick-effect="reverb" data-midi-control>REVERB</button><button data-quick-effect="flanger" data-midi-control>FLANGER</button><button data-quick-effect="gate" data-midi-control>GATE</button><button data-quick-effect="phaser" data-midi-control>PHASER</button><button data-quick-effect="distortion" data-midi-control>DRIVE</button>
+            </div>
+            <div class="stem-controls">
+              <div class="stem-heading"><button class="stem-separate" id="stems-a" data-midi-control title="فصل محلي لنحو 172 MiB من النموذج عند أول استخدام">فصل Stems AI</button><span id="stems-status-a">المسار كامل</span><progress id="stems-progress-a" max="100" value="0" hidden></progress></div>
+              <div class="stem-faders">
+                <label for="stem-vocals-a">VOCALS<input id="stem-vocals-a" data-midi-control type="range" min="0" max="100" value="100" disabled></label>
+                <label for="stem-drums-a">DRUMS<input id="stem-drums-a" data-midi-control type="range" min="0" max="100" value="100" disabled></label>
+                <label for="stem-bass-a">BASS<input id="stem-bass-a" data-midi-control type="range" min="0" max="100" value="100" disabled></label>
+                <label for="stem-other-a">OTHER<input id="stem-other-a" data-midi-control type="range" min="0" max="100" value="100" disabled></label>
+              </div>
+            </div>
+            <section class="deck-performance" aria-label="مؤثرات ووسادات المشغل A">
+              <div class="effect-channel deck-a">
+                <div class="effect-channel-heading"><span class="deck-letter">A</span><strong>مؤثرات A</strong></div>
+                <div class="effect-controls">
+                  <label class="effect-select-label" for="effect-type-a">المؤثر
+                    <select id="effect-type-a" data-midi-control><option value="filter">Filter</option><option value="echo">Echo</option><option value="reverb">Reverb</option><option value="flanger">Flanger</option><option value="gate">Gate</option><option value="phaser">Phaser</option><option value="distortion">Distortion</option></select>
+                  </label>
+                  <button class="effect-toggle" id="effect-toggle-a" data-midi-control aria-pressed="false">تشغيل</button>
+                  <label class="effect-range-label" for="effect-param-a"><span id="effect-param-name-a">القطع</span><input id="effect-param-a" data-midi-control type="range" min="0" max="100" value="55"><span id="effect-param-value-a">55</span></label>
+                  <label class="effect-range-label" for="effect-wet-a"><span>المزج</span><input id="effect-wet-a" data-midi-control type="range" min="0" max="100" value="45"><span id="effect-wet-value-a">45%</span></label>
+                </div>
+              </div>
+              <div class="deck-pad-panel">
+                <div class="deck-pad-heading"><strong>وسادات الأداء</strong><label for="pad-mode-a">الوضع<select id="pad-mode-a" data-midi-control><option value="hotcue">Hot Cue</option><option value="loop">Loop</option><option value="sampler">Sampler</option><option value="slicer">Slicer</option><option value="roll">Roll</option></select></label><button class="pad-reset" id="pad-reset-a" data-midi-control>مسح Cue</button></div>
+                <div class="performance-pads" id="performance-pads-a" aria-label="وسادات الأداء A"></div>
+              </div>
+            </section>
+          </article>
+
+          <article class="deck deck-b" data-deck="b">
+            <div class="deck-top">
+              <div class="deck-label">
+                <span class="deck-letter">B</span>
+                <div><h2>المشغل B</h2><span class="deck-status" id="status-b">جاهز للمزج</span></div>
+              </div>
+              <button class="deck-load" data-load="b">＋ <span>تحميل مسار</span></button>
+            </div>
+            <div class="track-card">
+              <div class="record-art art-b"><span class="record-label">B</span></div>
+              <div class="track-info"><strong id="track-name-b">لا يوجد مسار</strong><span id="track-detail-b">اختر أغنية من مكتبتك للبدء</span></div>
+            </div>
+            <div class="jog-control">
+              <div class="jog-strip"><button class="jog-wheel" id="jog-b" data-midi-control aria-label="عجلة تحكم B"><span class="jog-center">B</span></button><span class="jog-hint">اسحب العجلة للخدش والتحريك</span></div>
+              <div class="jog-actions"><button class="sync-button" id="sync-b" data-midi-control aria-pressed="false" title="مزامنة سرعة المشغل B مع مشغل آخر">SYNC</button><button class="headphone-cue-button" id="headphone-cue-b" data-deck="b" data-midi-control aria-label="معاينة المسار B في سماعات الرأس" aria-pressed="false">PFL · سماعة الرأس</button></div>
+            </div>
+            <div class="wave-area"><canvas id="wave-b" aria-label="موجة الصوت للمسار B"></canvas><div class="wave-empty" id="wave-empty-b">حمّل مسارًا لبدء التشغيل</div></div>
+            <div class="timeline">
+              <span id="time-b">00:00</span>
+              <input id="seek-b" type="range" min="0" max="100" value="0" aria-label="موضع التشغيل B">
+              <span id="duration-b">00:00</span>
+            </div>
+            <div class="transport">
+              <button class="text-control" data-action="cue" data-deck="b"><span>↶</span> CUE</button>
+              <div class="transport-main">
+                <button class="play-button" data-action="play" data-deck="b" aria-label="تشغيل أو إيقاف B">▶</button>
+                <button class="loop-button" data-action="loop" data-deck="b" aria-label="تكرار المسار B">↻</button>
+              </div>
+              <div class="tempo-control">
+                <span>السرعة</span>
+                <input id="tempo-b" type="range" min="80" max="120" value="100" aria-label="سرعة المسار B">
+                <strong id="tempo-value-b">+0%</strong>
+              </div>
+            </div>
+            <div class="deck-mixer">
+              <div class="eq-control">
+                <label for="high-b">HIGH</label><input id="high-b" data-midi-control type="range" min="0" max="100" value="50" aria-label="الترددات العالية B"><span>±12</span>
+              </div>
+              <div class="eq-control">
+                <label for="mid-b">MID</label><input id="mid-b" data-midi-control type="range" min="0" max="100" value="50" aria-label="الترددات المتوسطة B"><span>±12</span>
+              </div>
+              <div class="eq-control">
+                <label for="low-b">LOW</label><input id="low-b" data-midi-control type="range" min="0" max="100" value="50" aria-label="الترددات المنخفضة B"><span>±12</span>
+              </div>
+              <div class="channel-volume">
+                <label for="volume-b">مستوى المسار</label>
+                <input id="volume-b" data-midi-control type="range" min="0" max="100" value="85" aria-label="مستوى المسار B">
+              </div>
+            </div>
+            <div class="deck-fx-buttons" aria-label="أزرار المؤثرات السريعة B">
+              <span>FX</span>
+              <button data-quick-effect="filter" data-midi-control>FILTER</button><button data-quick-effect="echo" data-midi-control>ECHO</button><button data-quick-effect="reverb" data-midi-control>REVERB</button><button data-quick-effect="flanger" data-midi-control>FLANGER</button><button data-quick-effect="gate" data-midi-control>GATE</button><button data-quick-effect="phaser" data-midi-control>PHASER</button><button data-quick-effect="distortion" data-midi-control>DRIVE</button>
+            </div>
+            <div class="stem-controls">
+              <div class="stem-heading"><button class="stem-separate" id="stems-b" data-midi-control title="فصل محلي لنحو 172 MiB من النموذج عند أول استخدام">فصل Stems AI</button><span id="stems-status-b">المسار كامل</span><progress id="stems-progress-b" max="100" value="0" hidden></progress></div>
+              <div class="stem-faders">
+                <label for="stem-vocals-b">VOCALS<input id="stem-vocals-b" data-midi-control type="range" min="0" max="100" value="100" disabled></label>
+                <label for="stem-drums-b">DRUMS<input id="stem-drums-b" data-midi-control type="range" min="0" max="100" value="100" disabled></label>
+                <label for="stem-bass-b">BASS<input id="stem-bass-b" data-midi-control type="range" min="0" max="100" value="100" disabled></label>
+                <label for="stem-other-b">OTHER<input id="stem-other-b" data-midi-control type="range" min="0" max="100" value="100" disabled></label>
+              </div>
+            </div>
+            <section class="deck-performance" aria-label="مؤثرات ووسادات المشغل B">
+              <div class="effect-channel deck-b">
+                <div class="effect-channel-heading"><span class="deck-letter">B</span><strong>مؤثرات B</strong></div>
+                <div class="effect-controls">
+                  <label class="effect-select-label" for="effect-type-b">المؤثر
+                    <select id="effect-type-b" data-midi-control><option value="filter">Filter</option><option value="echo">Echo</option><option value="reverb">Reverb</option><option value="flanger">Flanger</option><option value="gate">Gate</option><option value="phaser">Phaser</option><option value="distortion">Distortion</option></select>
+                  </label>
+                  <button class="effect-toggle" id="effect-toggle-b" data-midi-control aria-pressed="false">تشغيل</button>
+                  <label class="effect-range-label" for="effect-param-b"><span id="effect-param-name-b">القطع</span><input id="effect-param-b" data-midi-control type="range" min="0" max="100" value="55"><span id="effect-param-value-b">55</span></label>
+                  <label class="effect-range-label" for="effect-wet-b"><span>المزج</span><input id="effect-wet-b" data-midi-control type="range" min="0" max="100" value="45"><span id="effect-wet-value-b">45%</span></label>
+                </div>
+              </div>
+              <div class="deck-pad-panel">
+                <div class="deck-pad-heading"><strong>وسادات الأداء</strong><label for="pad-mode-b">الوضع<select id="pad-mode-b" data-midi-control><option value="hotcue">Hot Cue</option><option value="loop">Loop</option><option value="sampler">Sampler</option><option value="slicer">Slicer</option><option value="roll">Roll</option></select></label><button class="pad-reset" id="pad-reset-b" data-midi-control>مسح Cue</button></div>
+                <div class="performance-pads" id="performance-pads-b" aria-label="وسادات الأداء B"></div>
+              </div>
+            </section>
+          </article>
+        </section>
+
+        <section class="crossfader-panel mixer-console" aria-label="ميكسر الصوت">
+          <div class="mixer-console-heading"><strong>الميكسر</strong><div class="mixer-master-level"><span>MASTER</span><span class="mixer-meter" id="master-level-meter"><i></i></span></div><span class="mix-indicator"><i></i> مزج سلس</span></div>
+          <div class="mixer-channel-meters" aria-label="مستويات قنوات الميكسر">
+            <div class="mixer-channel-meter deck-a" data-mixer-meter="a"><span>A</span><span class="mixer-meter"><i></i></span></div>
+            <div class="mixer-channel-meter deck-b" data-mixer-meter="b"><span>B</span><span class="mixer-meter"><i></i></span></div>
+            <div class="mixer-channel-meter deck-c" data-mixer-meter="c"><span>C</span><span class="mixer-meter"><i></i></span></div>
+            <div class="mixer-channel-meter deck-d" data-mixer-meter="d"><span>D</span><span class="mixer-meter"><i></i></span></div>
+          </div>
+          <div class="crossfader-control">
+            <span class="cross-label label-a">A</span>
+            <input id="crossfader" type="range" min="0" max="100" value="50" aria-label="المزج بين المسارين A وB">
+            <span class="cross-label label-b">B</span>
+          </div>
+          <div class="crossfader-marks"><span>A/C</span><span id="crossfader-label">A ↔ B</span><span>B/D</span></div>
+        </section>
+
+        <div class="bottom-workspace">
+        <section class="performance-panel" aria-label="التحكم الخارجي والتسجيل وصندوق العينات">
+          <div class="performance-heading">
+            <div><p class="eyebrow">أدوات الأداء</p><h2>الأجهزة والتسجيل</h2></div>
+            <div class="midi-controls">
+              <span class="midi-status" id="midi-status"><i></i> غير متصل</span>
+              <label class="midi-device-field" for="midi-device">المتحكم
+                <select id="midi-device" aria-label="اختر متحكم MIDI" disabled><option value="">لا توجد أجهزة</option></select>
+              </label>
+              <label class="midi-device-field" for="midi-pad-target">وسادات MIDI
+                <select id="midi-pad-target" data-midi-control aria-label="المشغل المستهدف لوسادات MIDI المشتركة"><option value="a">A</option><option value="b">B</option><option value="c">C</option><option value="d">D</option></select>
+              </label>
+              <button class="secondary-button midi-controller-toggle active" id="midi-enabled-toggle" type="button" aria-pressed="true" title="إيقاف استقبال التحكم الخارجي">إيقاف وحدات التحكم</button>
+              <button class="secondary-button" id="midi-connect">توصيل MIDI</button>
+              <button class="secondary-button" id="midi-learn" data-midi-control>تعلّم التحكم</button>
+              <button class="record-button" id="record-toggle" aria-pressed="false"><span class="record-light"></span><span id="record-label">بدء التسجيل</span><time id="record-time">00:00</time></button>
+            </div>
+          </div>
+          <div class="sample-box">
+            <div class="sample-box-heading"><strong>صندوق العينات</strong><button class="secondary-button" id="sample-import">＋ استيراد عينات</button></div>
+            <div class="sample-slots" id="sample-slots"></div>
+            <p class="sample-hint" id="sample-hint">أفلت أغنية من المكتبة على خانة لتعيينها كعينة.</p>
+          </div>
+          <p class="midi-hint" id="midi-hint">صل متحكم MIDI عبر USB أو Bluetooth، ثم اختر «تعلّم التحكم» واربط أي زر أو منزلق.</p>
+          <p class="stem-model-note">فصل Stems بالذكاء الاصطناعي يتم محليًا؛ يُنزّل نموذجًا موثوقًا بحجم يقارب 172 MiB عند أول فصل ولا تُرفع الأغاني إلى أي خادم.</p>
+        </section>
+
+        <section class="library-dock" aria-label="مجلدات ومقاطع الموسيقى">
+          <div class="dock-library-heading">
+            <div><p class="eyebrow">المجموعة الصوتية</p><h2>مكتبة الموسيقى <span id="dock-track-count">0 مسارات</span></h2></div>
+            <div class="dock-library-tools">
+              <label class="search-box"><span>⌕</span><input id="dock-search-input" type="search" placeholder="ابحث عن أغنية..." aria-label="ابحث في المكتبة"></label>
+              <button class="secondary-button" id="dock-library-folder">＋ إضافة مجلد</button>
+              <button class="secondary-button" id="dock-library-import">＋ إضافة أغاني</button>
+              <button class="secondary-button" id="dock-library-open">عرض المكتبة</button>
+            </div>
+          </div>
+          <div class="dock-library-content">
+            <div class="library-folders" id="library-folders" aria-label="مجلدات الموسيقى"></div>
+            <div class="library-table dock-track-table">
+              <div class="table-header"><span>#</span><span>المسار</span><span>المجلد</span><span>إضافة إلى</span></div>
+              <div id="dock-library-list"></div>
+            </div>
+          </div>
+        </section>
+        </div>
+
+      </main>
+      <dialog class="library-dialog" id="library-modal" aria-label="مكتبة الموسيقى">
+        <section class="library-panel">
+          <div class="library-heading">
+            <div class="library-drag-handle" data-library-drag-handle><p class="eyebrow">مجموعتك الصوتية</p><h2>مكتبة الموسيقى <span id="track-count">0 مسارات</span></h2></div>
+            <div class="library-tools">
+              <label class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="ابحث عن أغنية..." aria-label="ابحث في المكتبة"></label>
+              <button class="secondary-button" id="library-folder">＋ إضافة مجلد</button>
+              <button class="secondary-button" id="library-import">＋ إضافة أغاني</button>
+              <button class="icon-button dialog-close" id="library-minimize" title="تصغير مكتبة الموسيقى" aria-label="تصغير مكتبة الموسيقى">−</button>
+              <button class="icon-button dialog-close" id="library-close" aria-label="إغلاق مكتبة الموسيقى">×</button>
+            </div>
+          </div>
+          <div class="library-table">
+            <div class="table-header"><span>#</span><span>المسار</span><span>المدة</span><span>إضافة إلى</span></div>
+            <div id="library-list">
+              <div class="empty-library"><span class="empty-icon">♫</span><strong>مكتبتك تبدأ من هنا</strong><p>استورد ملفاتك الصوتية وجهّزها للمزج.</p><button id="empty-import">استيراد الموسيقى</button></div>
+            </div>
+          </div>
+        </section>
+        <button class="library-restore" id="library-restore" title="استعادة مكتبة الموسيقى" aria-label="استعادة مكتبة الموسيقى">♫</button>
+      </dialog>
+      <dialog class="track-analysis-dialog" id="track-analysis-modal" aria-labelledby="track-analysis-title">
+        <div class="dialog-heading">
+          <div><p class="eyebrow">تحليل محلي للصوت والبيانات الوصفية</p><h2 id="track-analysis-title">تحليل المسار</h2></div>
+          <button class="icon-button dialog-close" id="track-analysis-close" aria-label="إغلاق معلومات المسار">×</button>
+        </div>
+        <p class="track-analysis-status" id="track-analysis-status" role="status">جارٍ قراءة معلومات الملف وتحليل الإيقاع…</p>
+        <p class="track-analysis-note">يُقرأ النوع الموسيقي من وسوم الملف؛ لا يُخمَّن عند غيابها.</p>
+        <div class="track-analysis-grid" id="track-analysis-fields"></div>
+        <div class="track-analysis-actions"><button class="secondary-button" id="track-analysis-retry">إعادة التحليل</button><button class="secondary-button" id="track-analysis-dismiss">إغلاق</button></div>
+      </dialog>
+      <dialog class="audio-settings-dialog" id="audio-settings-modal" aria-labelledby="audio-settings-title">
+        <div class="dialog-heading">
+          <div><p class="eyebrow">توجيه مستقل للصوت</p><h2 id="audio-settings-title">مخارج الصوت</h2></div>
+          <button class="icon-button dialog-close" id="audio-settings-close" aria-label="إغلاق إعدادات الصوت">×</button>
+        </div>
+        <label class="audio-output-field" for="master-output-device">السماعات الرئيسية
+          <select id="master-output-device"><option value="">مخرج النظام الافتراضي</option></select>
+        </label>
+        <label class="audio-output-field" for="headphone-output-device">سماعات الرأس للمعاينة
+          <select id="headphone-output-device"><option value="">غير مُعدّة — المعاينة متوقفة</option></select>
+        </label>
+        <label class="headphone-mix-control" for="headphone-mix">
+          <span>مزيج سماعات الرأس</span>
+          <span class="headphone-mix-labels"><span>معاينة Cue</span><strong id="headphone-mix-value">Cue فقط</strong><span>الصوت الرئيسي</span></span>
+          <input id="headphone-mix" type="range" min="0" max="100" value="0">
+        </label>
+        <p class="audio-settings-hint" id="audio-settings-hint">اختر مخرجًا مستقلًا لسماعات الرأس، ثم اضغط PFL على أي مشغّل لسماع معاينته دون إرسالها للسماعات الرئيسية.</p>
+        <p class="audio-settings-status" id="audio-settings-status" role="status"></p>
+      </dialog>
+      <dialog class="rhythm-dialog" id="rhythm-modal" aria-labelledby="rhythm-title">
+        <div class="dialog-heading">
+          <div><p class="eyebrow">أنشئ إيقاعك خطوة بخطوة</p><h2 id="rhythm-title">منشئ الإيقاعات</h2></div>
+          <button class="icon-button dialog-close" id="rhythm-close" aria-label="إغلاق منشئ الإيقاعات">×</button>
+        </div>
+        <div class="rhythm-toolbar">
+          <label for="rhythm-pattern">النمط
+            <select id="rhythm-pattern">
+              <option value="house">House</option><option value="techno">Techno</option>
+              <option value="hiphop">Hip-Hop</option><option value="breakbeat">Breakbeat</option>
+              <option value="empty">فارغ</option>
+            </select>
+          </label>
+          <label class="rhythm-tempo-label" for="rhythm-tempo">السرعة <strong id="rhythm-tempo-value">120 BPM</strong>
+            <input id="rhythm-tempo" type="range" min="70" max="180" value="120">
+          </label>
+          <label for="rhythm-volume">مستوى الإيقاع <strong id="rhythm-volume-value">70%</strong>
+            <input id="rhythm-volume" type="range" min="0" max="100" value="70">
+          </label>
+        </div>
+        <div class="rhythm-sequencer" id="rhythm-sequencer" aria-label="مصفوفة خطوات الإيقاع"></div>
+        <div class="rhythm-save-row">
+          <label for="rhythm-name">اسم الإيقاع<input id="rhythm-name" type="text" maxlength="32" placeholder="إيقاعي الجديد"></label>
+          <button class="secondary-button" id="rhythm-save">حفظ الإيقاع</button>
+          <label for="rhythm-saved">إيقاعاتي<select id="rhythm-saved"><option value="">المحفوظة</option></select></label>
+        </div>
+        <div class="rhythm-actions">
+          <p class="audio-settings-hint" id="rhythm-status" role="status">اختر نمطًا أو انقر الخطوات لصنع إيقاعك، ثم اضغط تشغيل.</p>
+          <div><button class="primary-button" id="rhythm-play">▶ تشغيل</button><button class="secondary-button" id="rhythm-stop" disabled>■ إيقاف</button></div>
+        </div>
+      </dialog>
+      <audio id="master-output" autoplay></audio>
+      <audio id="headphone-output" autoplay></audio>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+    <script src="renderer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "name": "mixdeck-studio",
+  "version": "1.0.0",
+  "description": "NOOR DJ mixing and music organization app for Windows",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win"
+  },
+  "dependencies": {
+    "demucs-web": "1.0.2",
+    "music-metadata": "^12.3.3",
+    "onnxruntime-web": "1.31.1"
+  },
+  "devDependencies": {
+    "electron": "^39.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.mixdeck.studio",
+    "productName": "NOOR DJ",
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "styles.css",
+      "renderer.js",
+      "stem-engine.js",
+      "assets/noor-dj.ico",
+      "node_modules/demucs-web/src/**/*",
+      "node_modules/onnxruntime-web/dist/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/noor-dj.ico"
+    }
+  },
+  "allowScripts": {
+    "electron@39.8.10": true,
+    "electron-winstaller@5.4.0": true,
+    "protobufjs@7.6.6": true
+  }
+}
